@@ -56,18 +56,18 @@ EOT
       limit_cpu_for_migration_enabled = optional(bool)
       memory_in_mb                    = optional(number)
     }))
-    network_interface = optional(object({
+    network_interface = optional(list(object({
       ipv4_address_type  = optional(string)
       ipv6_address_type  = optional(string)
       mac_address_type   = optional(string)
       name               = string
       virtual_network_id = optional(string)
-    }))
+    })))
     operating_system = optional(object({
       admin_password = optional(string)
       computer_name  = optional(string)
     }))
-    storage_disk = optional(object({
+    storage_disk = optional(list(object({
       bus                     = optional(number)
       bus_type                = optional(string)
       disk_size_gb            = optional(number)
@@ -76,7 +76,7 @@ EOT
       storage_qos_policy_name = optional(string)
       template_disk_id        = optional(string)
       vhd_type                = optional(string)
-    }))
+    })))
   }))
 }
 

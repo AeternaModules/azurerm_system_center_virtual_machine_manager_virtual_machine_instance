@@ -25,7 +25,7 @@ resource "azurerm_system_center_virtual_machine_manager_virtual_machine_instance
   }
 
   dynamic "network_interface" {
-    for_each = each.value.network_interface != null ? [each.value.network_interface] : []
+    for_each = each.value.network_interface != null ? each.value.network_interface : []
     content {
       ipv4_address_type  = network_interface.value.ipv4_address_type
       ipv6_address_type  = network_interface.value.ipv6_address_type
@@ -44,7 +44,7 @@ resource "azurerm_system_center_virtual_machine_manager_virtual_machine_instance
   }
 
   dynamic "storage_disk" {
-    for_each = each.value.storage_disk != null ? [each.value.storage_disk] : []
+    for_each = each.value.storage_disk != null ? each.value.storage_disk : []
     content {
       bus                     = storage_disk.value.bus
       bus_type                = storage_disk.value.bus_type
