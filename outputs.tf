@@ -8,11 +8,11 @@ output "system_center_virtual_machine_manager_virtual_machine_instances_custom_l
 }
 output "system_center_virtual_machine_manager_virtual_machine_instances_hardware" {
   description = "Map of hardware values across all system_center_virtual_machine_manager_virtual_machine_instances, keyed the same as var.system_center_virtual_machine_manager_virtual_machine_instances"
-  value       = { for k, v in azurerm_system_center_virtual_machine_manager_virtual_machine_instance.system_center_virtual_machine_manager_virtual_machine_instances : k => v.hardware if v.hardware != null && length(v.hardware) > 0 }
+  value       = { for k, v in azurerm_system_center_virtual_machine_manager_virtual_machine_instance.system_center_virtual_machine_manager_virtual_machine_instances : k => one(v.hardware) if v.hardware != null && length(v.hardware) > 0 }
 }
 output "system_center_virtual_machine_manager_virtual_machine_instances_infrastructure" {
   description = "Map of infrastructure values across all system_center_virtual_machine_manager_virtual_machine_instances, keyed the same as var.system_center_virtual_machine_manager_virtual_machine_instances"
-  value       = { for k, v in azurerm_system_center_virtual_machine_manager_virtual_machine_instance.system_center_virtual_machine_manager_virtual_machine_instances : k => v.infrastructure if v.infrastructure != null && length(v.infrastructure) > 0 }
+  value       = { for k, v in azurerm_system_center_virtual_machine_manager_virtual_machine_instance.system_center_virtual_machine_manager_virtual_machine_instances : k => one(v.infrastructure) if v.infrastructure != null && length(v.infrastructure) > 0 }
 }
 output "system_center_virtual_machine_manager_virtual_machine_instances_network_interface" {
   description = "Map of network_interface values across all system_center_virtual_machine_manager_virtual_machine_instances, keyed the same as var.system_center_virtual_machine_manager_virtual_machine_instances"
@@ -20,7 +20,7 @@ output "system_center_virtual_machine_manager_virtual_machine_instances_network_
 }
 output "system_center_virtual_machine_manager_virtual_machine_instances_operating_system" {
   description = "Map of operating_system values across all system_center_virtual_machine_manager_virtual_machine_instances, keyed the same as var.system_center_virtual_machine_manager_virtual_machine_instances"
-  value       = { for k, v in azurerm_system_center_virtual_machine_manager_virtual_machine_instance.system_center_virtual_machine_manager_virtual_machine_instances : k => v.operating_system if v.operating_system != null && length(v.operating_system) > 0 }
+  value       = { for k, v in azurerm_system_center_virtual_machine_manager_virtual_machine_instance.system_center_virtual_machine_manager_virtual_machine_instances : k => one(v.operating_system) if v.operating_system != null && length(v.operating_system) > 0 }
   sensitive   = true
 }
 output "system_center_virtual_machine_manager_virtual_machine_instances_scoped_resource_id" {
